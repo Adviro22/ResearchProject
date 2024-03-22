@@ -1,0 +1,28 @@
+/* Estilos para controles de los formularios */
+textarea{
+    color: #495057;
+    font-size: 14px;
+    text-transform: none;
+    resize: none;
+}
+
+input[type=date] {
+    color: #495057;
+    font-size: 14px;
+}
+
+input[type=text] {
+    color: #495057;
+    font-size: 14px;
+}
+
+input:read-only {
+    background-color: #EEEEEE;
+    cursor: not-allowed;
+}
+
+textarea:read-only {
+    background-color: #EEEEEE;
+    cursor: not-allowed;
+}
+
