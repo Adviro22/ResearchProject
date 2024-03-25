@@ -30,7 +30,7 @@ if DEBUG:
     BASE_DIR = Path(__file__).resolve().parent.parent
 else:
     BASE_DIR = '/var/lib/django/research'
-    SITE_ROOT = BASE_DIR
+    SITE_ROOT = os.path.dirname(os.path.abspath(__file__))
     DJANGO_ROOT = os.path.dirname(os.path.realpath(django.__file__))
 
 # Quick-start development settings - unsuitable for production
@@ -68,6 +68,8 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+SITE_ROOT = os.path.dirname(os.path.abspath(__file__))
 
 ROOT_URLCONF = 'publ.urls'
 
@@ -113,7 +115,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'research',  # Or path to database file if using sqlite3. #sga29
         'USER': 'postgres',  # Not used with sqlite3.
-        'PASSWORD': '12345',  # Not used with sqlite3.
+        'PASSWORD': 'Mafer2169',  # Not used with sqlite3.
         'HOST': 'localhost',  # Set to empty string for localhost. Not used with sqlite3.
         'PORT': '5432',  # Set to empty string for default. Not used with sqlite3.
     },
