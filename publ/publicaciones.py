@@ -6,7 +6,7 @@ from django.db import connection, transaction, connections
 from settings import NAMECONEXION
 
 
-#@transaction.atomic()
+@transaction.atomic()
 def view(request):
     data = {}
     if request.method == 'POST':
@@ -73,3 +73,9 @@ def areasconocimiento():
 def view_index(request):
     #return HttpResponse("Pagina de Inicio")
     return render(request, 'publicaciones/view.html')
+
+def view_prueba(request):
+    return render(request, 'prueba/prueba.html')
+
+
+

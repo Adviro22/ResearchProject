@@ -22,12 +22,12 @@ def get_meta(entry):
   METADATA_HEADERS = {'Metadata-Flavor': 'Google'}
   r = requests.get(METADATA_URL, headers=METADATA_HEADERS)
   return r.text
-DEBUG = False
-
+DEBUG = True
 
 if DEBUG:
     # Build paths inside the project like this: BASE_DIR / 'subdir'.
-    BASE_DIR = Path(__file__).resolve().parent.parent
+    #BASE_DIR = Path(__file__).resolve().parent.parent
+    BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 else:
     BASE_DIR = '/var/lib/django/research'
     SITE_ROOT = os.path.dirname(os.path.abspath(__file__))
@@ -115,7 +115,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'research',  # Or path to database file if using sqlite3. #sga29
         'USER': 'postgres',  # Not used with sqlite3.
-        'PASSWORD': 'Mafer2169',  # Not used with sqlite3.
+        'PASSWORD': '12345',  # Not used with sqlite3.
         'HOST': 'localhost',  # Set to empty string for localhost. Not used with sqlite3.
         'PORT': '5432',  # Set to empty string for default. Not used with sqlite3.
     },
@@ -174,6 +174,8 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
 STATIC_URL = '/static/'
+
+print("La ruta de BASE_DIR es:", BASE_DIR)
 
 
 # Default primary key field type

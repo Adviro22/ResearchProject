@@ -10,27 +10,27 @@
     <meta name="author" content="UNEMI">
     <meta name="description" content="Research"/>
     <meta name="keywords" content="Research"/>
-    <link rel="shortcut icon" type="image/x-icon" href='{% static "logos/sgaplus_phone.svg" %}'>
-    <link href="{% static 'bootstrap5/libs/bootstrap-icons/font/bootstrap-icons.css' %}" rel="stylesheet"/>
-    <link href="{% static 'bootstrap5/libs/dragula/dist/dragula.min.css' %}" rel="stylesheet"/>
+    <link rel="shortcut icon" type="image/x-icon" href="{% static "logos/sgaplus_phone.svg" %}">
+    <link href="{% static "bootstrap5/libs/bootstrap-icons/font/bootstrap-icons.css" %}" rel="stylesheet"/>
+    <link href="{% static "bootstrap5/libs/dragula/dist/dragula.min.css" %}" rel="stylesheet"/>
     <link href="{% static 'bootstrap5/libs/%40mdi/font/css/materialdesignicons.min.css' %}" rel="stylesheet"/>
     <link href='{% static "bootstrap5/libs/datatables.net-bs5/css/dataTables.bootstrap5.min.css" %}' rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="% static 'bootstrap5/css/theme.min.css?23.4.28' %">
+    <link rel="stylesheet" href="{% static 'bootstrap5/css/theme.min.css?23.4.28' %}">
     <link rel="stylesheet" href="{% static 'bootstrap5/css/style.css?28.4.23' %}">
     <link href="{% static 'bootstrap5/libs/bootstrap-icons/font/bootstrap-icons.css' %}" rel="stylesheet"/>
     <link href="{% static 'bootstrap5/bootstrap-responsive.css?6.0.8' %}" rel="stylesheet"/>
     <link rel="stylesheet" href="{% static 'bootstrap5/fonts/robotofont.css?0.1' %}">
     <script src="{% static 'bootstrap5/libs/jquery/dist/jquery.min.js' %}"></script>
-    <script type='text/javascript' src="{% static 'bootstrap5/js/jquery.blockUI.js?v=2.71.0' %}"></script>
+    <!-- <script type='text/javascript' src="{% static 'bootstrap5/js/jquery.blockUI.js?v=2.71.0' %}"></script> -->
     <link href="{% static 'picons-thin/style.css' %}" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'animate/animate.css' %}">
-    <script type="text/javascript" src="{% static 'js/fontawesomev3.js?v=1.0.0' %}"></script>
+    <!-- <script type="text/javascript" src="{% static 'js/fontawesomev3.js?v=1.0.0' %}"></script> -->
     {#    <script type='text/javascript' src="/static/js/jquery.maskedinput.min.js?4.0.0"></script>#}
-    <script type='text/javascript' src="{% static 'js/sysend.js?4.0.0' %}"></script>
-    <script type='text/javascript' src="{% static 'js/smoke.js?4.0.0' %}"></script>
+    <!-- <script type='text/javascript' src="{% static 'js/sysend.js?4.0.0' %}"></script> -->
+    <script type='text/javascript' src="{% static 'js/smoke.js' %}"></script>
     <link href="{% static 'sweet2/sweetalert2.css?2.0.3' %}" rel="stylesheet"/>
     <script src="{% static 'sweet2/sweetalert2.js?1.0.1' %}"></script>
     <script type="text/javascript" src="{% static 'js/select2.js?v=1.0.0' %}"></script>
@@ -43,7 +43,7 @@
     <script src="{% static 'bootstrap5/libs/magnific-popup/dist/jquery.magnific-popup.min.js' %}"></script>
     <script src="{% static 'bootstrap5/libs/inputmask/dist/jquery.inputmask.min.js' %}"></script>
     <script src="{% static 'bootstrap5/libs/dragula/dist/dragula.min.js'%}"></script>
-    <script src="{% static 'bootstrap5/js/theme.min.js?3.11' %}"></script>
+    <script src="{% static 'bootstrap5/js/theme.min.js' %}"></script>
 
     <!-- Datatable -->
     <link rel="stylesheet" href="{%static 'datatables/datatables.css?0.1'%}">
@@ -180,7 +180,7 @@
 
         .table_white thead th {background-color: white;}
 
-        .table_white thead th:first-child, .table_white thead td:first-child {border-left: 5px solid #white}
+        .table_white thead th:first-child, .table_white thead td:first-child {border-left: 5px solid white}
 
         .table_white tbody th, .table_white tbody td {font-size: 13px;vertical-align: middle !important}
 
