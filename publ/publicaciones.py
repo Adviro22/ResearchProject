@@ -70,12 +70,12 @@ def areasconocimiento():
     cnunemi1.execute(sql_areas)
     return cnunemi1.fetchall()
 
-def view_index(request):
+def view_publicaciones(request):
     #return HttpResponse("Pagina de Inicio")
     return render(request, 'publicaciones/view.html')
 
 def view_prueba(request):
-    return render(request, 'prueba/prueba.html')
+    return render(request, 'index/index.html')
 
 
 
