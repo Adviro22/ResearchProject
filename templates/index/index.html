@@ -66,6 +66,54 @@
       href="{% static 'Mophy-v3.0.5/vendor/owl-carousel/owl.carousel.css' %}"
       rel="stylesheet"
     />
+
+
+	<link href="{% static 'bootstrap5/libs/bootstrap-icons/font/bootstrap-icons.css' %}" rel="stylesheet"/>
+    <link href="{% static 'bootstrap5/libs/dragula/dist/dragula.min.css' %}" rel="stylesheet"/>
+    <link href="{% static 'bootstrap5/libs/%40mdi/font/css/materialdesignicons.min.css' %}" rel="stylesheet"/>
+    <link href="{% static 'bootstrap5/libs/datatables.net-bs5/css/dataTables.bootstrap5.min.css' %}" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'bootstrap5/css/theme.min.css' %}">
+    <link rel="stylesheet" href="{% static 'bootstrap5/css/style.css' %}">
+    <link href="{% static 'bootstrap5/libs/bootstrap-icons/font/bootstrap-icons.css' %}" rel="stylesheet"/>
+    <link href="{% static 'bootstrap5/bootstrap-responsive.css' %}" rel="stylesheet"/>
+    <link rel="stylesheet" href="{% static 'bootstrap5/fonts/robotofont.css' %}">
+    <script src="{% static 'bootstrap5/libs/jquery/dist/jquery.min.js' %}"></script>
+    <!-- <script type='text/javascript' src="{% static 'bootstrap5/js/jquery.blockUI.js?v=2.71.0' %}"></script> -->
+    <link href="{% static 'picons-thin/style.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'animate/animate.css' %}">
+    <!-- <script type="text/javascript" src="{% static 'js/fontawesomev3.js?v=1.0.0' %}"></script> -->
+    <!-- <script type='text/javascript' src="/static/js/jquery.maskedinput.min.js?4.0.0"></script> -->
+    <!-- <script type='text/javascript' src="{% static 'js/sysend.js?4.0.0' %}"></script> -->
+    <script type='text/javascript' src="{% static 'js/smoke.js' %}"></script>
+    <link href="{% static 'sweet2/sweetalert2.css' %}" rel="stylesheet"/>
+    <script src="{% static 'sweet2/sweetalert2.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/select2.js' %}"></script>
+    <link type="text/css" rel="stylesheet" href="{% static 'css/select2.css' %}">
+    <script type="text/javascript" src="{% static 'js/snow.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'fancyboxv4/fancybox.css' %}"/>
+    <link rel="stylesheet" href="{% static 'fancyboxv4/panzoom.css' %}"/>
+    <script src="{% static 'fancyboxv4/fancybox.umd.js' %}"></script>
+    <script src="{% static 'bootstrap5/libs/bootstrap/libs/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'bootstrap5/libs/magnific-popup/dist/jquery.magnific-popup.min.js' %}"></script>
+    <script src="{% static 'bootstrap5/libs/inputmask/dist/jquery.inputmask.min.js' %}"></script>
+    <script src="{% static 'bootstrap5/libs/dragula/dist/dragula.min.js'%}"></script>
+    <script src="{% static 'bootstrap5/js/theme.min.js' %}"></script>
+
+    <!-- Datatable -->
+    <link rel="stylesheet" href="{%static 'datatables/datatables.css'%}">
+    <script src="{%static 'datatables/datatables.js'%}"></script>
+    <link rel="stylesheet" href="{%static 'datatables/responsive.bootstrap.min.css'%}">
+    <script src="{%static 'datatables/dataTables.responsive.min.js'%}"></script>
+    <script src="{%static 'datatables/responsive.bootstrap.min.js'%}"></script>
+    <link rel="stylesheet" href="{%static 'datatables/dataTables.bootstrap.min.css'%}">
+    <link rel="stylesheet" href="{%static 'datatables/buttons.bootstrap.min.css'%}">
+    <link rel="stylesheet" href="{%static 'datatables/bootstrap-toggle.min.css'%}">
+    <script src="{%static 'datatables/dataTables.buttons.min.js'%}"></script>
+
+	
   </head>
   <body>
     <!--*******************
@@ -1040,7 +1088,7 @@
         ***********************************-->
       	<div class="deznav">
 			<div class="deznav-scroll">
-				<ul class="metismenu" id="menu">
+				<ul class="metismenu" id="mostrar_contenido">
 					<li>
 					<a
 						href="javascript:void()"
@@ -1062,10 +1110,65 @@
             Content body start
         ***********************************-->
     <div class="content-body">
-        <!-- row -->
-        <div class="container-fluid">
-        <div class="form-head mb-4"></div>
-        </div>
+        <div id="contenido_oculto" style="display: none;">
+			<p>Este es el contenido que se mostrará después de hacer clic en el botón.</p>
+
+			<div class='col-md-12'>
+				<div class="card mb-4">
+					<div class="card-body">
+						<div class="col-md-12 col-sm-12 float-right">
+							<div class="col-md-6 col-sm-12 float-left">
+								<div class="input-group mb-2">
+									<select class="form-select" id="areaconocimiento">
+										<option value="0">Todas las áreas.</option>
+										{% for area in areasconocimiento %}
+											<option {% if ida == area.0 %}selected{% endif %} value="{{ area.0 }}">{{ area.1 }}</option>
+										{% endfor %}
+									</select>
+								</div>
+							</div>
+							<table class='table-bordered table table_primary tabla_articulos' >
+								<thead >
+								<tr>
+									<th >Área</th>
+									<th >Artículo</th>
+									<th >Autores </th>
+									<th >Revista</th>
+									<th >Base de datos</th>
+
+								</tr>
+								</thead>
+								<tbody>
+								{% for articulo in articulos %}
+									<tr>
+										<td>{{ articulo.0|lower|capfirst }}</td>
+										<td class="w-25">
+											<h5 class="mb-0   nompersonas">{{ articulo.1|lower|capfirst }}</h5>
+											<br>
+											{%  if articulo.2 %}
+												<b>Año:</b> <span class="text-info">{{ articulo.2|floatformat:'0' }}</span>
+											{% endif %}
+										</td>
+										<td>
+											<ul>
+												{{ articulo.5|safe }}
+											</ul>
+										</td>
+										<td>{{ articulo.3|lower|capfirst|default_if_none:"" }}</td>
+										<td>{{ articulo.4|lower|capfirst|default_if_none:"" }}</td>
+									</tr>
+								{% endfor %}
+								</tbody>
+							</table>
+						</div>
+						{#                            <div class="card-footer border-top-0">#}
+						{#                                {% include 'paginacionb4.html' %}#}
+						{#                            </div>#}
+					</div>
+				</div>
+			</div>
+			
+		</div>
     </div>
     <!--**********************************
             Content body end
@@ -1163,6 +1266,49 @@
           carouselReview();
         }, 1000);
       });
+
+	  	document.getElementById("mostrar_contenido").addEventListener("click", function() {
+		document.getElementById("contenido_oculto").style.display = "block";
+		});
+
+
+		$(function () {
+            $("#areaconocimiento").select2({minimumResultsForSearch: 20});
+            $("#areaconocimiento").change(function () {
+                var idac = $("#areaconocimiento").val();
+                location.href = "/publicaciones?ida=" + idac;
+            });
+            $(".tabla_articulos").DataTable({
+                language: {
+                    "decimal": "",
+                    "emptyTable": "No hay información",
+                    "info": "Mostrando _START_ a _END_ de _TOTAL_ Entradas",
+                    "infoEmpty": "Mostrando 0 to 0 of 0 Entradas",
+                    "infoFiltered": "(Filtrado de _MAX_ total entradas)",
+                    "infoPostFix": "",
+                    "thousands": ",",
+                    "lengthMenu": "Mostrar _MENU_ Entradas",
+                    "loadingRecords": "Cargando...",
+                    "processing": "Procesando...",
+                    "search": "Buscar:",
+                    "zeroRecords": "Sin resultados encontrados",
+                    "paginate": {
+                        "first": "Primero",
+                        "last": "Ultimo",
+                        "next": "Siguiente",
+                        "previous": "Anterior"
+                    }
+                },
+                "responsive": true,
+                "lengthChange": false,
+                "autoWidth": false,
+                "ordering": false,
+                "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+            });
+
+
+        });
+
     </script>
   </body>
 </html>
