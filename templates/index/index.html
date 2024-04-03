@@ -116,6 +116,7 @@
 	
   </head>
   <body>
+    
     <!--*******************
         Preloader start
     ********************-->
@@ -1170,6 +1171,37 @@
 			
 		</div>
     </div>
+								{% for articulo in articulos %}
+									<tr>
+										<td>{{ articulo.0|lower|capfirst }}</td>
+										<td class="w-25">
+											<h5 class="mb-0   nompersonas">{{ articulo.1|lower|capfirst }}</h5>
+											<br>
+											{%  if articulo.2 %}
+												<b>Año:</b> <span class="text-info">{{ articulo.2|floatformat:'0' }}</span>
+											{% endif %}
+										</td>
+										<td>
+											<ul>
+												{{ articulo.5|safe }}
+											</ul>
+										</td>
+										<td>{{ articulo.3|lower|capfirst|default_if_none:"" }}</td>
+										<td>{{ articulo.4|lower|capfirst|default_if_none:"" }}</td>
+									</tr>
+								{% endfor %}
+								</tbody>
+							</table>
+						</div>
+						{#                            <div class="card-footer border-top-0">#}
+						{#                                {% include 'paginacionb4.html' %}#}
+						{#                            </div>#}
+					</div>
+				</div>
+			</div>
+			
+		</div>
+    </div>
     <!--**********************************
             Content body end
         ***********************************-->
@@ -1177,24 +1209,17 @@
       <!--**********************************
             Footer start
         ***********************************-->
-      <div class="footer">
-        <div class="copyright">
-          <p>
-            Copyright © Designed &amp; Developed by
-            <a href="http://dexignzone.com/" target="_blank">DexignZone</a> 2023
-          </p>
-        </div>
-      </div>
+      
       <!--**********************************
             Footer end
         ***********************************-->
 
       <!--**********************************
-           Support ticket button start
+          Support ticket button start
         ***********************************-->
 
       <!--**********************************
-           Support ticket button end
+          Support ticket button end
         ***********************************-->
     
     <!--**********************************
@@ -1204,6 +1229,100 @@
     <!--**********************************
         Scripts
     ***********************************-->
+
+    <style>
+      .divScroll {
+          height: 350px;
+
+          overflow: scroll;
+      }
+
+      .scrollbar-dusty-grass::-webkit-scrollbar-track {
+          -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+          background-color: #F5F5F5;
+          border-radius: 10px;
+      }
+
+      .scrollbar-dusty-grass::-webkit-scrollbar {
+          width: 12px;
+          background-color: #F5F5F5;
+      }
+
+      .scrollbar-dusty-grass::-webkit-scrollbar-thumb {
+          border-radius: 10px;
+          -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+          background-image: -webkit-linear-gradient(330deg, #d4fc79 0%, #96e6a1 100%);
+          background-image: linear-gradient(120deg, #d4fc79 0%, #96e6a1 100%);
+      }
+
+
+      .square::-webkit-scrollbar-track {
+          border-radius: 0 !important;
+      }
+
+      .square::-webkit-scrollbar-thumb {
+          border-radius: 0 !important;
+      }
+
+      .thin::-webkit-scrollbar {
+          width: 10px;
+      }
+
+
+      .table_striped tbody tr:nth-child(even), .table_striped tbody tr:nth-child(even) {background-color: #e7eef5;}
+
+      .table_striped tbody tr:nth-child(odd), .table_striped tbody tr:nth-child(odd) {background-color: #f2f6fb;}
+
+      .table_striped thead th, .table_striped thead td, .table_striped tbody th, .table_striped tbody td {border-right: 1px solid white;}
+
+      .table_striped thead th:nth-child(1), .table_striped thead th:nth-child(2), .table_striped thead td:nth-child(1), .table_striped thead td:nth-child(2), .table_striped tbody td:nth-child(1), .table_striped tbody td:nth-child(2), .table_striped tbody th:nth-child(1), .table_striped tbody th:nth-child(2) {border-right: none;}
+
+      .table_striped thead th:nth-child(2), .table_striped thead td:nth-child(2) {padding-left: 15px}
+      .table_striped tbody th:nth-child(2), .table_striped tbody td:nth-child(2) {color:#000;}
+
+      .table_striped a.btn {padding-bottom: 0.5rem !important;padding-top: 0.5rem !important;font-weight: bold}
+      .table_striped a.btn {padding-bottom: 0.5rem !important;padding-top: 0.5rem !important;}
+
+      .table_striped a.btn .fa {font-size: 9px;margin-right: 3px}
+
+      .table_striped thead th {text-align: center;color: #1e121e;font-size: 13px;vertical-align: middle;text-transform: uppercase;}
+
+      .table_primary th {
+          color: #122436;
+      }
+
+      .table_primary thead th {background-color: #abcae6}
+
+      .table_primary thead th:first-child, .table_primary thead td:first-child {border-left: 5px solid #1c3247}
+
+      .table_primary tbody th, .table_primary tbody td {font-size: 13px;vertical-align: middle !important}
+
+      .table_warning thead th {background-color: #f9ebd6;}
+
+      .table_warning thead th:first-child, .table_warning thead td:first-child {border-left: 5px solid #fe9900}
+
+      .table_warning tbody th, .table_warning tbody td {font-size: 13px;vertical-align: middle !important}
+
+      .table_danger thead th {background-color: #FADBD8;}
+
+      .table_danger thead th:first-child, .table_danger thead td:first-child {border-left: 5px solid #E74C3C}
+
+      .table_danger tbody th, .table_danger tbody td {font-size: 13px;vertical-align: middle !important}
+
+      .table_success thead th {background-color: #D0ECE7;}
+
+      .table_success thead th:first-child, .table_success thead td:first-child {border-left: 5px solid #73C6B6}
+
+      .table_success tbody th, .table_success tbody td {font-size: 13px;vertical-align: middle !important}
+
+      .table_white thead th {background-color: white;}
+
+      .table_white thead th:first-child, .table_white thead td:first-child {border-left: 5px solid white}
+
+      .table_white tbody th, .table_white tbody td {font-size: 13px;vertical-align: middle !important}
+
+
+  </style>
     <!-- Required vendors -->
     <script src="{% static 'Mophy-v3.0.5/vendor/global/global.min.js' %}"></script>
     <script src="{% static 'Mophy-v3.0.5/vendor/bootstrap-select/dist/js/bootstrap-select.min.js' %}"></script>
@@ -1267,7 +1386,7 @@
         }, 1000);
       });
 
-	  	document.getElementById("mostrar_contenido").addEventListener("click", function() {
+	  document.getElementById("mostrar_contenido").addEventListener("click", function() {
 		document.getElementById("contenido_oculto").style.display = "block";
 		});
 
